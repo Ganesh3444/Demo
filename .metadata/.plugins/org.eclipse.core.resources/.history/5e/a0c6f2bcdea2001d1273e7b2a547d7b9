@@ -1,0 +1,7 @@
+package java8Example;
+
+@FunctionalInterface
+public interface MyfunInterface {
+
+	int calculte (double x , int y);
+}

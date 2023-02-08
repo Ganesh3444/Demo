@@ -1,0 +1,37 @@
+package java8Optional;
+
+import java.util.Optional;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class Test {
+
+	public static final Logger LOGGER = LogManager.getLogger(Test.class);
+	public static void main(String[] args) {
+		
+		String[] words = new String[10];
+		words[4] = "String";
+		
+		Optional<String> chevalue = Optional.ofNullable(words[3]);
+		
+		boolean a = chevalue.get().equals("String");
+		LOGGER.info(a);
+		
+		String b = chevalue.get().concat(" hii").concat(" how r u");
+		LOGGER.info(b);
+		
+		if(chevalue.isPresent()) {
+			String s = chevalue.get().toUpperCase();
+			LOGGER.info(s);
+			
+			boolean s1 = chevalue.get().endsWith("e");
+			LOGGER.info(s1);
+		}else {
+			LOGGER.info("String is nullable");
+		}
+		
+
+	}
+
+}

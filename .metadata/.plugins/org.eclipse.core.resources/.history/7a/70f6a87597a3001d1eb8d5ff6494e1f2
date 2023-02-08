@@ -1,0 +1,33 @@
+package java8Optional;
+
+import java.util.Optional;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		String[] words = new String[10];
+		words[4] = "String";
+		
+		Optional<String> chevalue = Optional.ofNullable(words[4]);
+		
+		boolean a = chevalue.get().equals("String");
+		System.out.println(a);
+		
+		String b = chevalue.get().concat("hii").concat(" how r u");
+		System.out.println(b);
+		
+		if(chevalue.isPresent()) {
+			String s = chevalue.get().toUpperCase();
+			System.out.println(s);
+			
+			boolean s1 = chevalue.get().endsWith("e");
+			System.out.println(s1);
+		}else {
+			System.out.println("String is nullable");
+		}
+		
+
+	}
+
+}

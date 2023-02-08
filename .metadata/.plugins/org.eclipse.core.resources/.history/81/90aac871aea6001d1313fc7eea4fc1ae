@@ -1,0 +1,10 @@
+package hibernateCrudExample;
+
+public class Product {
+
+	private int pid;
+	
+	private String productname;
+	
+	private String productPrice
+}

@@ -1,0 +1,5 @@
+package hibernateCrudExample;
+
+public class Product {
+
+}

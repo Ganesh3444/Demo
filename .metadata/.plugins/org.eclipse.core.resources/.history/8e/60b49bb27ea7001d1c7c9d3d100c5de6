@@ -1,0 +1,63 @@
+package com.app;
+
+import java.util.Scanner;
+
+import com.service.ServiceI;
+import com.service.ServiceImpl;
+
+public class Admin {
+
+	public static void main(String[] args) {
+
+		ServiceI s = new ServiceImpl();
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("------------------ Application Strated---------------");
+
+		while (true) {
+			System.out.println("1. Add Student With Address");
+			System.out.println("2. Select All Student Data");
+			System.out.println(" 3. GEt single Student With Their Student");
+			System.out.println("4. Update Only Student");
+			;
+			System.out.println("5. Update Student Using their Address");
+			System.out.println("6. Delete Student");
+
+			int ch = sc.nextInt();
+
+			switch (ch) {
+			case 1:
+
+				s.addStudentWithAddress();
+				break;
+
+			case 2:
+
+				s.getAllStudentWithTheirAddress();
+				break;
+
+			case 3:
+
+				s.getSingleStudentWithAddress();
+				break;
+
+			case 4:
+
+				s.updateSingleStudent();
+				break;
+			case 5:
+
+				s.updateAddressUsingStudent();
+				break;
+
+			case 6:
+
+				s.deletSingleStudent();
+				break;
+
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,40 @@
+package distinctFilterSort;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		List<String> membernames = new ArrayList<String>();
+		membernames.add("ganesh");
+		membernames.add("vidhi");
+		membernames.add("samidha");
+		membernames.add("kalyani");
+		membernames.add("dhiraj");
+		membernames.add("riya");
+		membernames.add("Shweta");
+		membernames.add("Chetan");
+		
+		System.out.println(membernames);
+		
+		System.out.println("----------------------------------------");
+		membernames.stream().distinct().filter(n -> n.startsWith("s")).forEach(n -> System.out.println(n));
+		
+		membernames.stream().filter(n -> n.startsWith("s")).map(n -> n.toUpperCase()).forEach(n -> System.out.println(n));
+		
+		List<Integer> list = new ArrayList<>();
+		for(int i = 1; i<11; i++) {
+			list.add(i);
+		}
+		//Map
+		list.stream().filter(x-> x%2==0).map(x -> x*x).forEach(x -> System.out.println(x));
+		
+		//sorting
+		list.stream().sorted().forEach(x -> System.out.println(x));
+		
+		
+		
+	}
+}

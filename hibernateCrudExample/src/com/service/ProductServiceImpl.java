@@ -1,0 +1,103 @@
+package com.service;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+
+import com.Util.HibernateUtil;
+import com.entity.Product;
+
+public class ProductServiceImpl implements ProductService {
+
+	SessionFactory sf = HibernateUtil.getSessionFactory();
+	Scanner sc = new Scanner(System.in);
+	@Override
+	public void AddProduct() {
+		Session session = sf.openSession();
+		Product product = new Product();
+		System.out.println("Enter Product Name :");
+		product.setpName(sc.next());
+		
+		System.out.println("Enter Product Price :");
+		product.setpPrice(sc.nextDouble());
+		
+		System.out.println("Enter Product Quantity :");
+		product.setpQuantity(sc.nextInt());
+		
+		session.save(product);
+		session.beginTransaction().commit();
+		
+		System.out.println("Product Inserted Successfully...!");
+		
+		
+	}
+
+	@Override
+	public void SelectAll() {
+		
+		Session session = sf.openSession();
+		Query<Product> query = session.createQuery(" from Product");
+		List<Product> plist = query.getResultList();
+		System.out.println(plist);
+		
+	}
+
+	@Override
+	public void GetSingleDetails() {
+
+		Session session = sf.openSession();
+		System.out.println("Enter Product ID :");
+		int id = sc.nextInt();
+		Product product = session.get(Product.class, id);
+		
+		if (product!= null) {
+			System.out.println(product);	
+		}else {
+			System.out.println("SORRY Product not Available....!");
+		}
+		
+		
+	}
+
+	@Override
+	public void UpdateProduct() {
+		
+		Session session = sf.openSession();
+		System.out.println("Enter Product id :");
+		int id = sc.nextInt();
+		
+		Product product = session.get(Product.class, id);
+		
+		System.out.println("Enter Product Name :");
+		product.setpName(sc.next());
+		
+		System.out.println("Enter Product Price :");
+		product.setpPrice(sc.nextDouble());
+		
+		System.out.println("Enter Product Quantity :");
+		product.setpQuantity(sc.nextInt());
+		
+		session.update(product);
+		session.beginTransaction().commit();
+		System.out.println("Product Updated Sucessfully...!");
+		
+	}
+
+	@Override
+	public void DeleteProduct() {
+		
+		Session session = sf.openSession();
+		System.out.println(" Enter Product id :");
+		int id = sc.nextInt();
+		Product product = session.get(Product.class, id);
+		
+		session.delete(product);
+		session.beginTransaction().commit();
+		System.out.println("Product Deleted Successfully...!");
+		
+	}
+
+}

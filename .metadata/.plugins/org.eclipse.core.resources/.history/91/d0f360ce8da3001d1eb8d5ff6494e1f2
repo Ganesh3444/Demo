@@ -1,0 +1,17 @@
+package java8Supplier;
+
+public class Test {
+
+	public static Employee getEmployee() {
+		Employee emp = new Employee();
+		emp.setId(101);
+		emp.setName("ganesh");
+		return emp;
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

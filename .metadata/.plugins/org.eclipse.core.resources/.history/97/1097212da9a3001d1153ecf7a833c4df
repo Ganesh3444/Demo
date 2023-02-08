@@ -1,0 +1,18 @@
+package java8StreamCreate;
+
+import java.util.stream.Stream;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		Stream<Integer> intstream = Stream.of(1,2,3,4,5,6,7,8,9,10);
+		
+		intstream.forEach(n -> System.out.println(n));
+		
+		Stream<String> srtStream = Stream.of(new String[] {"abcd","pqrs","xyz"});
+		srtStream.forEach(n -> System.out.println(n));
+
+	}
+
+}
